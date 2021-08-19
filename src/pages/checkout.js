@@ -7,7 +7,8 @@ import { selectItems, selectTotal } from "../slices/basketSlice";
 import { useSession } from "next-auth/client";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+const publicKey = process.env.stripe_public_key.toString();
+const stripePromise = loadStripe(publicKey);
 
 function Checkout() {
     const items = useSelector(selectItems);
