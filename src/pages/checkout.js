@@ -73,7 +73,7 @@ function Checkout() {
                                     <Currency quantity={total} currency="GBP" />
                                 </span>
                             </h2>
-                            <button className="button"role="link" onClick={createCheckoutSession}>
+                            <button className="button" onClick={createCheckoutSession}>
                                 Proceed to checkout
                             </button>
                         </>
