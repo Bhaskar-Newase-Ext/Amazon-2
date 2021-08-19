@@ -7,7 +7,7 @@ import { selectItems, selectTotal } from "../slices/basketSlice";
 import { useSession } from "next-auth/client";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-const stripePromise = loadStripe(process.env.stripe_public_key);
+const stripePromise = loadStripe("pk_test_51JPNiCSF2ouX2yKjLcPu43B2jP0yjNMrlPc9djMmHTkWVZNPdc4VG8t4vbI6lwa4Qtd9n3ZZFYcW7E5wEDzIjpW800MSvVI4Sa");
 
 function Checkout() {
     const items = useSelector(selectItems);
@@ -73,8 +73,9 @@ function Checkout() {
                                     <Currency quantity={total} currency="GBP" />
                                 </span>
                             </h2>
-                            <button className="button" onClick={createCheckoutSession}>
-                                Proceed to checkout
+                            <button role="link" onClick={createCheckoutSession} disabled={!session} className={`button mt-2 ${
+                                !session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
+                                {!session ? "Sign into checkout":"Proceed to checkout"}
                             </button>
                         </>
                     )}
