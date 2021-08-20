@@ -7,8 +7,9 @@ import { selectItems, selectTotal } from "../slices/basketSlice";
 import { useSession } from "next-auth/client";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+debugger
 const publicKey = process.env.stripe_public_key.toString();
-const stripePromise = loadStripe(publicKey);
+const stripePromise = loadStripe("pk_test_51JPNiCSF2ouX2yKjLcPu43B2jP0yjNMrlPc9djMmHTkWVZNPdc4VG8t4vbI6lwa4Qtd9n3ZZFYcW7E5wEDzIjpW800MSvVI4Sa");
 
 function Checkout() {
     const items = useSelector(selectItems);
